@@ -1,0 +1,23 @@
+<div class="container mb-20">
+  <map zoom-to-include-markers="true" zoom="12" center="{{ center }}" style="display:block; width:auto; height:auto;">
+    <marker
+      ng-repeat="feature in features"
+      position="{{feature.theCoordinates}}"
+      title="{{ feature.properties.title }}"
+      on-click="showGarage(event, feature)"
+      icon="{{ feature.theIcon }}"
+    ></marker>
+  </map>
+</div>
+
+<div class="container mb-20" ng-show="selectedGarage">
+  <md-card>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{ selectedGarage.name}}</span>
+        <span class="md-subhead">Free Space Short : {{ selectedGarage.garageAvailability.freeSpaceShort }}</span>
+        <span class="md-subhead">Free Space Long  : {{ selectedGarage.garageAvailability.freeSpaceLong }}</span>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+</div>
